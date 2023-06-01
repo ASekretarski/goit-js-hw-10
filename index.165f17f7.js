@@ -1,2 +1,0 @@
-fetch("https://api.thecatapi.com/v1/images/search?api_key=live_rqK3oyd38AWXZJb7xjlK2r9gU43INARb6XZ8w0bUxgPsfIqDs3eCDfsHe3HiMbTT&limit=5&has_breeds=1").then((function(e){return e.json()})).then((function(e){var i=[],t=!0,n=!1,o=void 0;try{for(var r,a=e[Symbol.iterator]();!(t=(r=a.next()).done);t=!0){position=r.value;var s=position.breeds[0];i.push({name:s.name,id:s.id,description:s.description})}}catch(e){n=!0,o=e}finally{try{t||null==a.return||a.return()}finally{if(n)throw o}}console.log(i)})).catch((function(e){console.log(e)}));
-//# sourceMappingURL=index.165f17f7.js.map
