@@ -10,14 +10,11 @@ function fetchBreeds() {
         .then((data) => {
             const breedsData = [];
             for (position of data) {                
-                const breedInfo = position.breeds[0]
-                breedsData.push({
-                    name: breedInfo.name,
-                    id: breedInfo.id,
-                    description: breedInfo.description
-                })       
+                breedsData.push(...position.breeds)       
             }
             console.log(breedsData)
+            
+
         })
         .catch(err => { console.log(err) })
 }
