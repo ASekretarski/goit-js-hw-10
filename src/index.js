@@ -1,6 +1,5 @@
 import { fetchBreeds, fetchCatByBreed, fetchByUniqueId } from './cat-api';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
-import SlimSelect from 'slim-select'
 
 
 const selectList = document.querySelector('.breed-select');
@@ -13,8 +12,8 @@ catInfo.classList.add('invisible');
 errorMessage.classList.add('invisible')
 
 fetchBreeds()
-  .then(data => createBreedsList(data))
-  .catch(error => {
+    .then((data) => { createBreedsList(data) })
+    .catch((error) => {
     errorDisplay();
   });
 
