@@ -13,7 +13,6 @@ errorMessage.classList.add('invisible')
 
 fetchBreeds()
     .then((data) => {
-        console.log("TEST2");
         createBreedsList(data)
     })
     .catch((error) => {
@@ -44,13 +43,10 @@ selectList.addEventListener('change', event => {
 });
 
 function createBreedsList(breeds) {
-  console.log(breeds);
   const listOfBreeds = breeds
     .map(breed => {
       return `<option value="${breed.id}">${breed.name}</option>`;
-    })
-        .join('');
-    console.log(listOfBreeds)
+    }).join('');
 
     selectList.innerHTML = listOfBreeds;
     selectList.classList.remove('invisible')
@@ -101,6 +97,5 @@ function getCatImage(data) {
 
 function errorDisplay() {
   catInfo.classList.add('invisible');
-  loader.textContent = '';
   selectList.classList.add('invisible');
 }
