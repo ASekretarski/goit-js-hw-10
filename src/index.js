@@ -12,7 +12,10 @@ catInfo.classList.add('invisible');
 errorMessage.classList.add('invisible')
 
 fetchBreeds()
-    .then((data) => { createBreedsList(data) })
+    .then((data) => {
+        console.log("TEST2");
+        createBreedsList(data)
+    })
     .catch((error) => {
     errorDisplay();
   });
@@ -41,6 +44,7 @@ selectList.addEventListener('change', event => {
 });
 
 function createBreedsList(breeds) {
+    console.log("CREATE BREEDS LIST")
     const breedsList = [];
     for (breed of breeds) {
         const breedListItem = document.createElement('option');
