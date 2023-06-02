@@ -44,20 +44,17 @@ selectList.addEventListener('change', event => {
 });
 
 function createBreedsList(breeds) {
-    console.log(`BREEDS ${breeds}`)
-    const breedsList = [];
-    console.log(`const breedsList ${breedsList}`)
-    for (breed of breeds) {
-        const breedListItem = document.createElement("option");
-        breedListItem.value = breed.id;
-        breedListItem.textContent = breed.name;
-        breedsList.push(breedListItem);
-        console.log(`breedListItem to push ${breedListItem}`)
-    }
-    selectList.append(...breedsList)
+  console.log(breeds);
+  const listOfBreeds = breeds
+    .map(breed => {
+      return `<option value="${breed.id}">${breed.name}</option>`;
+    })
+        .join('');
+    console.log(listOfBreeds)
+
+    selectList.innerHTML = listOfBreeds;
     selectList.classList.remove('invisible')
     loader.classList.add('invisible')
-    console.log(selectList)
 }
 
 function generateDescription(breedName, breedDescription, breedTemperament) {
