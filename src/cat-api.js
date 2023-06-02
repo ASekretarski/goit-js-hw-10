@@ -1,22 +1,24 @@
+const selectList = document.querySelector('.breed-select')
 
-
-
-
-function fetchBreeds() {
-    fetch("https://api.thecatapi.com/v1/images/search?api_key=live_rqK3oyd38AWXZJb7xjlK2r9gU43INARb6XZ8w0bUxgPsfIqDs3eCDfsHe3HiMbTT&limit=5&has_breeds=1")
+export default function fetchBreeds() {
+    fetch("https://api.thecatapi.com/v1/breeds?api_key=live_rqK3oyd38AWXZJb7xjlK2r9gU43INARb6XZ8w0bUxgPsfIqDs3eCDfsHe3HiMbTT")
         .then(response => {
             return response.json();
         })
         .then((data) => {
-            const breedsData = [];
-            for (position of data) {                
-                breedsData.push(...position.breeds)       
+            const breedList = data;
+            const breedListOptions = [];
+            for (breed of breedList) {
+                const breedListItem = document.createElement('option');
+                breedListItem.value = breed.id;
+                breedListItem.textContent = breed.name;
+                breedListOptions.push(breedListItem)
+                
             }
-            console.log(breedsData)
-            
-
+            selectList.append(...breedListOptions)
         })
-        .catch(err => { console.log(err) })
+        .catch(err => {
+            console.log(err)
+        })
 }
 
-fetchBreeds()
