@@ -48,7 +48,7 @@ function createBreedsList(breeds) {
     const breedsList = [];
     console.log(`const breedsList ${breedsList}`)
     for (breed of breeds) {
-        const breedListItem = document.createElement('option');
+        const breedListItem = document.createElement("option");
         breedListItem.value = breed.id;
         breedListItem.textContent = breed.name;
         breedsList.push(breedListItem);
